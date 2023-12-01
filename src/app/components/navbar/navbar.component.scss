@@ -1,0 +1,137 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}
+
+.is-mobile .dashboard-toolbar{
+    position: fixed;
+    z-index: 2;
+}
+
+h1.app-name {
+    margin-left: 8px;
+    
+
+}
+
+.sidenav-container{
+    flex: 1;
+}
+
+.is-mobile .sidenav-container{
+    flex: 1 0 auto;
+}
+
+li,ul {
+    list-style: none;
+
+}
+
+.profile-card{
+    text-align: center;
+    padding: 0 20px 20px 20px;
+
+}
+
+.header{
+    margin-top: 20px;
+
+}
+
+.icono{
+    margin-right: 10px;
+    
+
+}
+.icon_menu{
+    display:inline-block;
+    vertical-align:bottom;
+}
+
+.example-spacer{
+    flex: 1 1 auto;
+}
+.icon-display {
+    transform: scale(1);
+ }
+ .icon-text{
+    font-size:smaller;
+    clear: left;
+    text-align: right;
+    vertical-align: middle;
+    line-height:25px;
+ }
+ .tarjeta {
+    min-width: 400px;
+    max-width: 600px;
+}
+
+.circular {
+    border-radius: 50%;
+}
+.demo-text{
+    clear: left;
+    text-align: right;
+    vertical-align:top;
+    line-height:25px;
+  }
+
+  .example-card {
+    max-width: 300px;
+    margin: 4px
+  }
+  
+  .example-header-image {
+    background-image: url('../../../assets/perfil.png');
+    background-size: cover;
+  }
+  .menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+  
+    mat-icon {
+      margin-right: 8px;
+    }
+  }
+
+.avatar {
+    margin-top: 16px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    align-items: center;
+  }
+  
+  .name {
+    margin-top: 8px;
+    font-weight: normal;
+  }
+  
+  .designation {
+    margin-top: 2px;
+    font-size: 0.7rem;
+    color: rgb(155, 154, 154);
+  }
+  
+  mat-divider {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 3px;
+    text-align: center;
+  }
+  

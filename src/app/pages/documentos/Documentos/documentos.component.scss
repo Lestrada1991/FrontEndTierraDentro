@@ -1,0 +1,68 @@
+
+
+.alinear {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.right{
+    margin-left: auto;
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+.mat-cell:nth-child(1),
+.mat-header-cell:nth-child(1){
+    flex: 0 0 6%;
+}
+.content {
+    padding: 16px;
+  }
+  
+  .content > mat-card {
+    margin-bottom: 16px;
+    width: 20%;
+    
+  }
+  .circular {
+    border-radius: 50%;
+    align-items: center;
+    ;
+}
+.contenedor {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title_center {
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+    //color:#28666e;
+  }
+  .profile-card{
+    text-align: center;
+    padding: 0 20px 20px 20px;
+
+}
+
+.example-card {
+    max-width: 450px;
+    margin: 10px;
+  }
+/* Estilo para el contenedor del texto */
+.texto-container {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  /* Estilo para el texto principal */
+  .texto-principal {
+    font-size: 24px;
+    color: #333; /* Cambia el color según tu paleta de colores */
+    font-weight: bold;
+  }
+  

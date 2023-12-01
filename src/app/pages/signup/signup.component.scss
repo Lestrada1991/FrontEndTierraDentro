@@ -1,0 +1,135 @@
+.adquiriente-container{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.adquiriente-container > * {
+    width: 100%;
+}
+table{
+    width: 100%;
+}
+
+.alinear{
+    text-align: center;
+    margin-top: 20px;
+}
+
+li,ul {
+    list-style: none;
+
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+.mat-cell:nth-child(1),
+.mat-header-cell:nth-child(1){
+flex:0 0 6%;
+}
+
+.color{
+    color: white;
+    
+}
+.profile-card{
+    text-align: center;
+    padding: 20px 20px 20px 20px;
+
+}
+img{
+    transform: scale(1.5);
+    float: left;
+}
+.flexContainer {
+    display:flex;
+    align-items:center;
+  }
+  
+  .customSpan {
+    margin:0 0 4px 4px;  
+  }
+  .customIcon {
+    color:dodgerblue;
+    font-size:25px;
+  }
+  p {
+    float: left;
+    font: bold;
+    margin: 5px;
+    padding: 5px;
+  }
+  .login-header{
+    font-size: 2.5rem;
+    color:#0c1066;
+    letter-spacing: 0.2rem;
+    font-weight: bold;
+    animation: fadein 1.75s ease-in-ou ;
+}
+
+.full-width{
+    width: 100%;
+   }
+   .login-card{
+       min-height: 80vh;
+       animation:fadein 1s ease-in-ou;
+   }
+   .login-content{
+       animation:fadein 1.5s ease-in-ou ;
+       min-height:100%;
+   }
+   .login-header{
+       font-size: 2.5rem;
+       color:#0c1066;
+       letter-spacing: 0.2rem;
+       font-weight: bold;
+       animation: fadein 1.75s ease-in-ou ;
+   }
+   .login-form{
+       width: 80%;
+   }
+   .forgot-link{
+       margin-top: 1rem;
+       text-decoration: none;
+       color: #ff3a82;
+       margin-left: 1rem;
+   }
+   .login-aside-overlay{
+       position: absolute;
+       top: 0;
+       left: 0;
+       height: 100%;
+       width: 100%;
+       background-color: rgba(0, 0, 0, 0.15);
+   }
+   .login-aside-hr{
+       height: 0.5rem;
+       width: 8rem;
+       border: none;
+       outline: none;
+       background-color: white;
+       position: relative;
+       z-index: 5;
+       margin: 0 0 8rem 3rem;
+       animation: slideright 4s ease-out;
+   
+   }
+   
+   .login-welcome-text{
+       color: white;
+       letter-spacing: 0.03rem;
+       margin: 0 0 2rem 3rem;
+       font-size: 2.75rem;
+       position: relative;
+       z-index: 5;
+       animation: slideright 2s ease-out;
+   }
+   .login-buttom{
+       font-weight:100 ;
+       width: 190px;
+       font-size: 1.1rem;
+   }
+   
+  

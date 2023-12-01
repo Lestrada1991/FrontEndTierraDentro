@@ -1,0 +1,68 @@
+<div style="margin-left: 20px;margin-right: 20px;">
+    <mat-card-content>
+        <mat-card-header>
+          <div style="display: flex; flex-direction: column; align-items: flex-end;">
+            <mat-form-field appearance="fill"  >
+              <mat-icon matSuffix>products</mat-icon>
+              <mat-label>Buscar</mat-label>
+              <input  matInput #input (input)="changebusqueda(input.value)" matTooltip="Ingresa tu búsqueda aquí">
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit" (click)="buscar(input.value)" style="margin-top: 4px;" matTooltip="Haz clic para buscar">
+              Buscar documentos
+            </button>
+          </div>
+        </mat-card-header>
+        <mat-icon></mat-icon>
+      </mat-card-content>
+       
+
+    <div class="container">
+        <div fxLayout="row wrap" fxLayoutGap="16px grid">
+            <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let element of dataCardsPage">
+
+                <mat-card>
+                    <mat-card-header>
+                        <div mat-card-avatar>
+
+                            <img mat-card-image [src]="element.picture" width="40px;" height="40px;" class="circular">
+                        </div>
+
+                        <mat-card-subtitle style="font-size:small;">{{ element.titulo }}</mat-card-subtitle>
+                        <mat-card-subtitle style="font-size:x-small;">{{ element.tipoDocumento.nombre
+                            }}</mat-card-subtitle>
+                    </mat-card-header>
+
+                    <img mat-card-image [src]="element.picture" width="45%" height="160px" style=" display: block;
+                            width: 60%;
+                            margin: auto">
+
+                    <mat-card-content>
+
+
+                        <mat-card-subtitle class="title_center">{{ element.contenido}}</mat-card-subtitle>
+
+
+                    </mat-card-content><br>
+                    <mat-card-actions fxLayout="row" fxLayoutAlign="center">
+                        <button mat-stroked-button color="accent" type="submit" matTooltip="Haz clic para ver los detalles"
+                            style="color: #e28000; font-size:small;" (click)="openDetalleLibroDialog(element)">
+                            ¡Detalles!
+                        </button>
+
+                        <button mat-stroked-button color="primary" style="font-size:small; color:#28666e" matTooltip="Haz clic descargar"
+                            (click)="openPDF(element.filePath)">
+                            ¡Descargar!
+                        </button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+
+    <mat-paginator #paginator [length]="totalItems" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+        (page)="onPageChange($event)">
+    </mat-paginator>
+
+
+
+</div>

@@ -1,0 +1,82 @@
+<div style="display: flex; justify-content: flex-end;">
+    <button mat-icon-button color="warn" class="close-button" (click)="onCancel()" matTooltip="Haz clic para cerrar">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  
+
+<mat-card-title class="title_center" mat-dialog-title>Detalles del libro</mat-card-title>
+
+<div fxLayoutAlign="center">
+    <img mat-card-image [src]="data.documento.picture" class="avatar mat-elevation-z8">
+    
+</div>
+<div>
+    <br>
+    <mat-card-title class="title_center_v2" mat-dialog-title [textContent]=" data.documento.titulo "></mat-card-title>
+</div>
+
+<mat-divider></mat-divider>
+
+        <mat-dialog-content >
+                   
+           
+            <form>
+                <div class="documento-container"> 
+                  <div class="form-field">
+                    <mat-form-field>
+                      <mat-label>Tema</mat-label>
+                      <mat-icon matPrefix>description</mat-icon>
+                      <input matInput [value]="listCProduct.tema" readonly>
+                    </mat-form-field>
+                  </div>
+              
+                  <div class="form-field">
+                    <mat-form-field>
+                      <mat-label>Clasificación</mat-label>
+                      <mat-icon matPrefix>grade</mat-icon>
+                      <input matInput [value]="listCProduct.clasificacion" readonly>
+                    </mat-form-field>
+                  </div>
+              
+                  <div class="form-field">
+                    <mat-form-field>
+                      <mat-label>Género</mat-label>
+                      <mat-icon matPrefix>category</mat-icon>
+                      <input matInput [value]="listCProduct.genero" readonly>
+                    </mat-form-field>
+                  </div>
+              
+                  <div class="form-field">
+                    <mat-form-field>
+                      <mat-label>Autor</mat-label>
+                      <mat-icon matPrefix>person</mat-icon>
+                      <input matInput [value]="listCProduct.autor.name" readonly>
+                    </mat-form-field>
+                  </div>
+              
+                  <div class="form-field">
+                    <mat-form-field>
+                      <mat-label>Editorial</mat-label>
+                      <mat-icon matPrefix>library_books</mat-icon>
+                      <input matInput [value]="listCProduct.editorial.name" readonly>
+                    </mat-form-field>
+                  </div>
+              
+                  <div class="form-field">
+                    <mat-form-field>
+                      <mat-label>Detalles</mat-label>
+                      <mat-icon matPrefix>description</mat-icon>
+                      <input matInput [value]="listCProduct.detalles" readonly>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </form>
+              
+            
+            
+        </mat-dialog-content>
+  
+        
+   
+    
