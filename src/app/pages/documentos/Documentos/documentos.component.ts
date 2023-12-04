@@ -85,7 +85,7 @@ onPageChange(event: any) {
         this.login.logout();
         this.ngOnInit();
       }else{
-      this.openSnackBar("Error al obtener productos", "Error");
+      this.openSnackBar("Error al obtener documentos", "Error");
       console.log("error en productos: ", error);}
     });
   }
@@ -141,10 +141,10 @@ onPageChange(event: any) {
     dialogRef.afterClosed().subscribe((result:any) => {
       
       if( result == 1){
-        this.openSnackBar("Producto eliminado", "Exitosa");
+        this.openSnackBar("Documento eliminado", "Exitosa");
         this.getProducts();
       } else if (result == 2) {
-        this.openSnackBar("Se produjo un error al eliminar producto", "Error");
+        this.openSnackBar("Se produjo un error al eliminar documento", "Error");
       }
     });
   }
@@ -181,8 +181,8 @@ onPageChange(event: any) {
             this.login.logout();
             this.ngOnInit();
           }else{
-          this.openSnackBar("Error al obtener productos", "Error");
-          console.log("error en productos: ", error);}
+          this.openSnackBar("Error al obtener documentos", "Error");
+          console.log("error en documentos: ", error);}
         });
   }
 

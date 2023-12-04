@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  public baseUrl='http://192.168.248.1:8080/api/v1'
+  public baseUrl='http://34.122.192.252:8080/api/v1'
   constructor(private httpClient: HttpClient) { }
 
   public registrarUsuario(user:any){

@@ -1,3 +1,3 @@
-let baseUrl='http://192.168.248.1:8080/web'
+let baseUrl='http://34.122.192.252:8080/web'
 
 export default baseUrl
