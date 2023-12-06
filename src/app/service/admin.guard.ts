@@ -5,22 +5,24 @@ import { inject } from '@angular/core';
 
 
 export const adminGuard: CanActivateFn = (
+  
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot
 ) => {
   const authService = inject(LoginService);
   const router = inject(Router);
+  console.log(authService.isLoggedIn());
   if(authService.isLoggedIn() ){
     if(authService.getUserRole()=='ADMIN' || authService.getUserRole()=='USER'){
     return true;
   }
   else{
-    return router.navigate(['product']);
+    return router.navigate(['login']);
     return of(false);
   }}
   else {
    
-      router.navigate(['product']);
+      router.navigate(['login']);
       return of(false);
     }
   

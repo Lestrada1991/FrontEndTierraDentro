@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -57,12 +57,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AuthInterceptorProviders } from './service/auth.interceptor';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { DocumentosComponent } from './pages/documentos/Documentos/documentos.component';
 
 import { ConfirmComponent } from './components/confirm/confirm.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DetalleLibrosComponent } from './pages/DetalleLibro/detallelibros.component';
+
+import {  RequestInterceptorProviders } from './service/http-request-interceptor';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 
@@ -77,6 +80,7 @@ import { DetalleLibrosComponent } from './pages/DetalleLibro/detallelibros.compo
     SignupComponent,
     LoginComponent,
     DetalleLibrosComponent,
+    DashboardComponent
 
   ],
   imports: [
@@ -123,10 +127,12 @@ import { DetalleLibrosComponent } from './pages/DetalleLibro/detallelibros.compo
     FlexLayoutModule,
     ReactiveFormsModule,
     MatFormFieldModule,  
+    NgxSpinnerModule,
    
     
   ],
-  providers: [AuthInterceptorProviders],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [AuthInterceptorProviders,RequestInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

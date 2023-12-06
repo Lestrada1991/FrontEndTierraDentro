@@ -43,6 +43,7 @@ export class LoginService {
   //obtener token
   public getToken(){
     return localStorage.getItem('token');
+    
   }
 
   
@@ -62,7 +63,7 @@ export class LoginService {
    public getUserRole(){
     let user= this.getUser();
     
-    //console.log("user: " + user.role);
+    console.log("user rol: " + user.role);
     return user.role
   }
 

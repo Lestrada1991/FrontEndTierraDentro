@@ -6,36 +6,40 @@ import { LoginComponent } from './pages/login/login.component';
 import { adminGuard } from './service/admin.guard';
 import { DocumentosComponent } from './pages/documentos/Documentos/documentos.component';
 import { DetalleLibrosComponent } from './pages/DetalleLibro/detallelibros.component';
+import { AppComponent } from './app.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'documentos',
+    redirectTo: 'login',
     pathMatch: 'full'
-    
-
   },
   {
     path: 'home',
-    redirectTo: 'product',
-    pathMatch: 'full' 
+    redirectTo: 'documentos',
+    pathMatch:'full'
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    pathMatch: 'full'
   },
   {
     path: 'documentos',
-    component: DocumentosComponent,
-    pathMatch: 'full'
-  }
-  ,
-  {
-    path: 'alertas',
-    component: DetalleLibrosComponent,
-    pathMatch: 'full'
-    //canActivate: [adminGuard]
-  }
-
+    component:DocumentosComponent,
+    pathMatch:'full',
+    canActivate: [adminGuard],
+  },
 ];
+
 
 
 

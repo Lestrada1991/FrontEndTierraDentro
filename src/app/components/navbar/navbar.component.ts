@@ -29,6 +29,7 @@ export class NavbarComponent implements OnInit{
     
   ]
   ngOnInit(): void {
+    console.log("navbar llego")
    
   }
   public logout(){
@@ -36,18 +37,7 @@ export class NavbarComponent implements OnInit{
     window.location.reload();   
   }
 
-  openSignUpDialog() {
-    const dialogRef = this.dialog.open(SignupComponent, {
-      width: "350px"
-      
-    });
-  }
-  openLoginDialog() {
-    const dialogRef = this.dialog.open(LoginComponent, {
-      width: "350px"
-      
-    });
-  }
+  
   
 
  

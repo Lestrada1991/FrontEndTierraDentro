@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
@@ -14,6 +13,7 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class LoginComponent implements OnInit {
 
+  
   styleImage = 'rainy';
   public form: FormGroup;
 
@@ -22,25 +22,24 @@ export class LoginComponent implements OnInit {
     "password": "",
   }
 
-  constructor(private snack: MatSnackBar,
-    private dialogRef: MatDialogRef<LoginComponent>, public loginservices: LoginService, private router: Router, private fb: FormBuilder) {
+  constructor(private snack: MatSnackBar, public loginservices: LoginService, private router: Router, private fb: FormBuilder) {
     const user = loginservices.getUser();
-    //console.log("usuario en local: " + user);
+    console.log("usuario en local: " + user);
     if (user != null) {
       var Rol = this.loginservices.getUserRole()
-      //console.log("ingreso al if del constructor");
-     // console.log("el rol es: " + Rol);
+      console.log("ingreso al if del constructor");
+      console.log("el rol es: " + Rol);
       if (Rol == "ADMIN") {
         //window.location.href='/admin';
         
-        this.router.navigate(['admin']);
+        this.router.navigate(['home']);
         
         this.loginservices.loginStatusSuject.next(true)
       }
       else if (Rol == "USER") {
         //window.location.href='/dashboard';
         
-        this.router.navigate(['dashboard'])
+        this.router.navigate(['home'])
         
         this.loginservices.loginStatusSuject.next(true)
       }
@@ -81,12 +80,8 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  onCancel() {
-    this.dialogRef.close()
-  }
-
   formSubmit() {
-    //console.log("aqui llego")
+    console.log("aqui llego")
     /*if(this.loginData.username.trim()=='' || this.loginData.username.trim()==null){
         this.snack.open("El nombre de usuario no puede estar vacio !!","Aceptar",{
           duration:3000,
@@ -107,7 +102,7 @@ export class LoginComponent implements OnInit {
       .subscribe((data: any) => {
        
         //this.loginservices.loginUser(data.token)
-        //console.log("token guardado")
+        console.log("token guardado")
         this.loginservices.loginUser(data);
         //this.loginservices.getActualUser().subscribe((user: any) => {
           
@@ -115,12 +110,12 @@ export class LoginComponent implements OnInit {
           //this.loginservices.setUser(user);
           //console.log(user);
           //this.loginservices.loginUser(data.token);
-          //console.log();
+          console.log();
 
           if (Rol === "ADMIN") {
             //window.location.href='/admin';
             
-            this.router.navigate(['admin']);
+            this.router.navigate(['/home/documentos']);
             //window.location.reload(); 
             this.loginservices.loginStatusSuject.next(true)
             
@@ -128,7 +123,7 @@ export class LoginComponent implements OnInit {
           else if (Rol === "USER") {
             //window.location.href='/dashboard';
             
-            this.router.navigate(['dashboard'])
+            this.router.navigate(['/home/documentos'])
             //window.location.reload(); 
             this.loginservices.loginStatusSuject.next(true)
             
@@ -136,13 +131,7 @@ export class LoginComponent implements OnInit {
           else {
             this.loginservices.logout();
           }
-          this.snack.open("Bienvenido " + data.object.firstName + "!!", "Aceptar", {
-            duration: 3000,
-            verticalPosition: 'bottom',
-            horizontalPosition: 'center',
-            
-          })
-          this.dialogRef.close()
+
        // })
 
       }, (error: any) => {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 
 import Swal from 'sweetalert2';
@@ -25,7 +25,8 @@ export class SignupComponent implements OnInit {
     username: '',
     password: '',
   }
-  constructor(private userService: UserService, private snack: MatSnackBar, private dialogRef: MatDialogRef<SignupComponent>) {
+  styleImage = 'rainy';
+  constructor(private userService: UserService, private snack: MatSnackBar,private router: Router,) {
 
 
   }
@@ -34,7 +35,15 @@ export class SignupComponent implements OnInit {
 
   }
   onCancel(){
-    this.dialogRef.close()
+   
+  }
+  unsplashClass(): any {
+    return {
+      'min-height': '100%',
+      background: `url("https://source.unsplash.com/random/1200x900?"${this.styleImage}) no-repeat center center`,
+      'background-size': 'cover',
+      position: 'relative',
+    };
   }
 
   formSubmit() {
@@ -84,7 +93,7 @@ export class SignupComponent implements OnInit {
       (data: any) => {
         //console.log(data);
         Swal.fire('Usuario guardado', 'Usuario registrado con exito en el sistema !!', 'success')
-        this.dialogRef.close();
+        this.router.navigate(['login'])
       }, (error: any) => {
         console.log(error);
         this.snack.open('Ha ocurrido un errror en el sistema !!', 'Aceptar', {

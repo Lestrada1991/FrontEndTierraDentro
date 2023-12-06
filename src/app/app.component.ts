@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from './service/login.service';
 
 
 @Component({
@@ -9,10 +10,10 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit{
   title = 'Gestor-Comercial-FrontEnd';
  
-  constructor(
+  constructor(public loginservices: LoginService
     
   ){ }
-
+  
   ngOnInit() {
     
   }

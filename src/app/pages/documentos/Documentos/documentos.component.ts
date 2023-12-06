@@ -23,12 +23,14 @@ export class DocumentosComponent implements OnInit{
     private documentoService: DocumentosService,
     private snackBar: MatSnackBar,
     private dialog: MatDialog,media:MediaMatcher,
-    private login:LoginService
+    public login:LoginService
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
   }
 
   ngOnInit(): void {
+    console.log("llego al componente de documentos")
+    console.log("documentos llego")
     this.getProducts();
   }
 
