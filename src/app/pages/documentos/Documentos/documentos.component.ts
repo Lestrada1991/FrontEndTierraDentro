@@ -238,13 +238,14 @@ changebusqueda(name: any): void {
     return this.getProducts();
   }
 }
-openPDF(Ruta: string) {
+openPDF(Ruta: string,id_doc:number) {
   console.log("Ruta: ",Ruta)
   const url = Ruta;
   const partes = url.split('/');
   const uuid = partes[partes.length - 1];
   console.log("id del archivo: ", uuid);
-  this.documentoService.descargarDocumentos(uuid)
+  var user_id = this.login.getUser().id;
+  this.documentoService.descargarDocumentos(uuid,id_doc,user_id)
     .subscribe((data: Blob) => {
       console.log("respuesta de documentos: ", data);
       const pdfSrc = URL.createObjectURL(data);

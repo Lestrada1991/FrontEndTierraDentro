@@ -24,8 +24,9 @@ export class SignupComponent implements OnInit {
     telefono: '',
     username: '',
     password: '',
+    role: ''
   }
-  styleImage = 'rainy';
+  styleImage = 'document,book,old';
   constructor(private userService: UserService, private snack: MatSnackBar,private router: Router,) {
 
 
@@ -34,9 +35,15 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
   onCancel(){
-   
+    this.router.navigate(['login'])
   }
+
+  isMobileDevice(): boolean {
+    return window.innerWidth <= 768; // Adjust threshold based on your needs
+  }
+
   unsplashClass(): any {
     return {
       'min-height': '100%',
@@ -89,6 +96,7 @@ export class SignupComponent implements OnInit {
 
       return;
     }
+    this.user.role="USER"
     this.userService.registrarUsuario(this.user).subscribe(
       (data: any) => {
         //console.log(data);

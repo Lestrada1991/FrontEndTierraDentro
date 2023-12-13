@@ -30,8 +30,8 @@ export class DocumentosService {
     return this.http.get(endpoint);
   }
 
-  descargarDocumentos(uuid: any): Observable<Blob> {
-    const endpoint = `${base_url}/archivoPDF/${uuid}`;
+  descargarDocumentos(uuid: any,id_doc:any,id_user:any): Observable<Blob> {
+    const endpoint = `${base_url}/archivoPDF/${uuid}/${id_doc}/${id_user}`;
     return this.http.get(endpoint ,{ responseType: 'blob' });
   }
   /**

@@ -13,7 +13,8 @@ export class AuthInterceptor implements HttpInterceptor{
         let authReq = req;
         const token = this.loginServices.getToken();
         
-        //console.log(token);
+        console.log('interceptor:')
+        console.log(token);
         if(token != null){
             authReq=authReq.clone({
                 setHeaders:{Authorization:`Bearer ${token}`,'Access-Control-Allow-Origin': '*'}
@@ -21,7 +22,7 @@ export class AuthInterceptor implements HttpInterceptor{
             })
 
         }
-        //console.log(authReq)
+        console.log(authReq)
         return next.handle(authReq);
     }
 }

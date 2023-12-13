@@ -14,7 +14,7 @@ import { LoginService } from 'src/app/service/login.service';
 export class LoginComponent implements OnInit {
 
   
-  styleImage = 'rainy';
+  styleImage = 'document,book,old';
   public form: FormGroup;
 
   loginData = {
@@ -78,6 +78,9 @@ export class LoginComponent implements OnInit {
       this.loginData.email = this.form.get('username')?.value;
       this.formSubmit();
     }
+  }
+  isMobileDevice(): boolean {
+    return window.innerWidth <= 768; // Adjust threshold based on your needs
   }
 
   formSubmit() {

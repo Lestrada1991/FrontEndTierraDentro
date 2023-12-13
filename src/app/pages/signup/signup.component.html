@@ -50,7 +50,7 @@ fxLayoutGap.xs="0">
             
         </main>
     </div>
-    <div class="login-card mat-elevation-z8" fxFlex=45% fxLayout="column" fxLayoutAlign="end start"
+    <div class="login-card mat-elevation-z8" fxFlex=45% fxLayout="column" fxLayoutAlign="end start" *ngIf="!isMobileDevice()"
         [ngStyle]="unsplashClass()">
         <div class="login-aside-overlay"></div>
         <h1 class="login-welcome-text">Welcome!</h1>
