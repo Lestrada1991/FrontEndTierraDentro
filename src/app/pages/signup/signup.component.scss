@@ -62,11 +62,29 @@ img{
     padding: 5px;
   }
   .login-header{
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     color:#0c1066;
     letter-spacing: 0.2rem;
     font-weight: bold;
     animation: fadein 1.75s ease-in-ou ;
+}
+.subtitle-header{
+ font-size: 1.0rem;
+ align-items: start;
+ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ color:#0c1066;
+ letter-spacing: 0.05rem;
+ font-weight: bold;
+ animation: fadein 1.75s ease-in-ou ;
+}
+.title-header{
+ font-size: 1.8rem;
+    color:#0c1066;
+    letter-spacing: 0.2rem;
+    font-weight: bold;
+    animation: fadein 1.75s ease-in-ou ;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana;
+    text-shadow: 1px 1px 2px black;
 }
 
 .full-width{
@@ -80,13 +98,7 @@ img{
        animation:fadein 1.5s ease-in-ou ;
        min-height:100%;
    }
-   .login-header{
-       font-size: 2.5rem;
-       color:#0c1066;
-       letter-spacing: 0.2rem;
-       font-weight: bold;
-       animation: fadein 1.75s ease-in-ou ;
-   }
+   
    .login-form{
        width: 80%;
    }

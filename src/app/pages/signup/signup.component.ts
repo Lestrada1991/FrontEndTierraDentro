@@ -47,7 +47,8 @@ export class SignupComponent implements OnInit {
   unsplashClass(): any {
     return {
       'min-height': '100%',
-      background: `url("https://source.unsplash.com/random/1200x900?"${this.styleImage}) no-repeat center center`,
+      background: `url("/assets/0.jpg") no-repeat center center`,
+      //background: `url("https://source.unsplash.com/random/1200x900?"${this.styleImage}) no-repeat center center`,
       'background-size': 'cover',
       position: 'relative',
     };
@@ -68,7 +69,7 @@ export class SignupComponent implements OnInit {
 
       return;
     }
-    if (this.user.username == '' || this.user.username == null) {
+    /*if (this.user.username == '' || this.user.username == null) {
       this.snack.open('El nombre del usuario es requerido !!', 'Aceptar', {
         duration: 3000,
         verticalPosition: 'bottom',
@@ -76,7 +77,7 @@ export class SignupComponent implements OnInit {
       });
 
       return;
-    }
+    }*/
     var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if (!this.user.email.match(EMAIL_REGEX)) {
       this.snack.open('El email ingresado no es valido !!', 'Aceptar', {

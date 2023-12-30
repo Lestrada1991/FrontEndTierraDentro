@@ -3,12 +3,13 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor, HttpResponse, HTTP_INTERCEPTORS
+  HttpInterceptor, HttpResponse, HTTP_INTERCEPTORS, HttpErrorResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import {catchError, finalize, map} from 'rxjs/operators'
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { LoginService } from './login.service';
 
 
 
@@ -21,7 +22,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 @Injectable()
 export class HttpRequestInterceptor implements HttpInterceptor {
 
-  constructor(private spinner: NgxSpinnerService
+  constructor(private spinner: NgxSpinnerService,private authService: LoginService,
   ) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -33,6 +34,17 @@ export class HttpRequestInterceptor implements HttpInterceptor {
       
         this.spinner.hide(); // Muestra el loader antes de la solicitud
       
+  }),
+  catchError((error: HttpErrorResponse) => {
+    if (error.status === 403) {
+      console.log("entro en error 403 interceptor");
+      // Cerrar sesión y redirigir al usuario a la página de inicio de sesión
+      this.authService.logout();
+      window.location.href = '/login';
+    }
+
+    // Propaga el error para que otras partes de la aplicación también puedan manejarlo
+    return throwError(error);
   }))
   
   }

@@ -72,7 +72,7 @@ onPageChange(event: any) {
         const dateProduct: DocumentElement[] = [];
        listCProduct.forEach((element: DocumentElement) => {
          //element.category = element.category.name;
-         element.picture = 'data:image/jpeg;base64,'+element.picture;
+         element.picture = element.picture = 'http://34.122.192.252:8689' + element.picturePath;;
          dateProduct.push(element);
         });
         this.dataCards = dateProduct;
@@ -84,8 +84,8 @@ onPageChange(event: any) {
         this.openSnackBar("No se encontraron coincidencias", "OK");
       }
       else if(error.status==403){
-        this.login.logout();
-        this.ngOnInit();
+      //  this.login.logout();
+       // this.ngOnInit();
       }else{
       this.openSnackBar("Error al obtener documentos", "Error");
       console.log("error en productos: ", error);}
@@ -169,7 +169,7 @@ onPageChange(event: any) {
         const dateProduct: DocumentElement[] = [];
        listCProduct.forEach((element: DocumentElement) => {
          //element.category = element.category.name;
-         element.picture = 'data:image/jpeg;base64,'+element.picture;
+         element.picture = element.picture = 'http://34.122.192.252:8689' + element.picturePath;
          dateProduct.push(element);
         });
             this.dataCards = dateProduct;
@@ -180,8 +180,8 @@ onPageChange(event: any) {
           if(error.status==404){
             this.openSnackBar("No se encontraron coincidencias", "OK");
           }else if(error.status==403){
-            this.login.logout();
-            this.ngOnInit();
+            //this.login.logout();
+            //this.ngOnInit();
           }else{
           this.openSnackBar("Error al obtener documentos", "Error");
           console.log("error en documentos: ", error);}
@@ -255,8 +255,8 @@ openPDF(Ruta: string,id_doc:number) {
       if (error.status == 404) {
         this.openSnackBar("No se encontraron coincidencias", "OK");
       } else if (error.status == 403) {
-        this.login.logout();
-        this.ngOnInit();
+        //this.login.logout();
+        //this.ngOnInit();
       } else {
         console.log("error en documentos: ", error);
       }
@@ -274,5 +274,6 @@ export interface DocumentElement {
   filePath: string;
   tipoDocumento: any;
   picture: any;
+  picturePath:any,
  
 }
