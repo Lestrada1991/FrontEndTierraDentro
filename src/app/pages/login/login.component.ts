@@ -32,14 +32,14 @@ export class LoginComponent implements OnInit {
       if (Rol == "ADMIN") {
         //window.location.href='/admin';
         
-        this.router.navigate(['home']);
+        this.router.navigate(['users/home']);
         
         this.loginservices.loginStatusSuject.next(true)
       }
       else if (Rol == "USER") {
         //window.location.href='/dashboard';
         
-        this.router.navigate(['home'])
+        this.router.navigate(['users/home'])
         
         this.loginservices.loginStatusSuject.next(true)
       }
@@ -119,7 +119,7 @@ export class LoginComponent implements OnInit {
           if (Rol === "ADMIN") {
             //window.location.href='/admin';
             
-            this.router.navigate(['/home/documentos']);
+            this.router.navigate(['/users/home/documentos']);
             //window.location.reload(); 
             this.loginservices.loginStatusSuject.next(true)
             
@@ -127,7 +127,7 @@ export class LoginComponent implements OnInit {
           else if (Rol === "USER") {
             //window.location.href='/dashboard';
             
-            this.router.navigate(['/home/documentos'])
+            this.router.navigate(['/users/home/documentos'])
             //window.location.reload(); 
             this.loginservices.loginStatusSuject.next(true)
             

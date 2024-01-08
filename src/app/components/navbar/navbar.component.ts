@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit{
   }
   menuNav = [
     
-    {name: "Documentos", route: "documentos", icon: "library_books"},
+    {name: "Documentos", route: "users/documentos", icon: "library_books"},
     {name: "...", route: "", icon: "loyalty"},
     {name: "...", route: "", icon: "category"},
     

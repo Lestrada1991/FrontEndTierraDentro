@@ -14,10 +14,40 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'users',
     pathMatch: 'full'
   },
   {
+  path: 'users',
+  children: [
+    {
+      path: '',
+      redirectTo: 'documentos',
+      pathMatch: 'full'
+    },
+    {
+      path: 'home',
+      redirectTo: 'documentos',
+      pathMatch:'full'
+    },
+    {
+      path: 'signup',
+      component: SignupComponent,
+      pathMatch: 'full'
+    },
+    {
+      path: 'login',
+      component: LoginComponent,
+      pathMatch: 'full'
+    },
+    {
+      path: 'documentos',
+      component:DocumentosComponent,
+      pathMatch:'full',
+      canActivate: [adminGuard],
+    },
+  ]},
+ /* {
     path: 'home',
     redirectTo: 'documentos',
     pathMatch:'full'
@@ -37,7 +67,7 @@ const routes: Routes = [
     component:DocumentosComponent,
     pathMatch:'full',
     canActivate: [adminGuard],
-  },
+  },*/
 ];
 
 

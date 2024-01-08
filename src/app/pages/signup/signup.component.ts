@@ -37,7 +37,7 @@ export class SignupComponent implements OnInit {
   }
 
   onCancel(){
-    this.router.navigate(['login'])
+    this.router.navigate(['users/login'])
   }
 
   isMobileDevice(): boolean {
@@ -102,7 +102,7 @@ export class SignupComponent implements OnInit {
       (data: any) => {
         //console.log(data);
         Swal.fire('Usuario guardado', 'Usuario registrado con exito en el sistema !!', 'success')
-        this.router.navigate(['login'])
+        this.router.navigate(['users/login'])
       }, (error: any) => {
         console.log(error);
         this.snack.open('Ha ocurrido un errror en el sistema !!', 'Aceptar', {
