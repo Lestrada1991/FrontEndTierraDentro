@@ -72,7 +72,7 @@ onPageChange(event: any) {
         const dateProduct: DocumentElement[] = [];
        listCProduct.forEach((element: DocumentElement) => {
          //element.category = element.category.name;
-         element.picture = element.picture = 'http://34.122.192.252:8689' + element.picturePath;;
+         element.picture = element.picture = 'https://tierradentro.online/img' + element.picturePath;;
          dateProduct.push(element);
         });
         this.dataCards = dateProduct;

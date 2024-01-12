@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import baseUrl from './helperautentication'
 
 
 @Injectable({
@@ -7,21 +8,21 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  public baseUrl='http://tierradentro:8080/api/v1'
+  //public baseUrl='http://tierradentro:8080/api/v1'
   constructor(private httpClient: HttpClient) { }
 
   public registrarUsuario(user:any){
     //console.log(user.username)
-    return this.httpClient.post(`${this.baseUrl}/auth/signup`,user);
+    return this.httpClient.post(`${baseUrl}/auth/signup`,user);
   }
 
   public consultarUsuario(username:any){
     //console.log(username)
-    return this.httpClient.get(`${this.baseUrl}/auth/signup`,username);
+    return this.httpClient.get(`${baseUrl}/auth/signup`,username);
   }
 
   public eliminarUsuario(userid:any){
     //console.log(userid)
-    return this.httpClient.delete(`${this.baseUrl}/user`,userid);
+    return this.httpClient.delete(`${baseUrl}/user`,userid);
   }
 }

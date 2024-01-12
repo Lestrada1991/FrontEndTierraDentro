@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import baseUrlLogin from './helperautentication'
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  public baseUrlLogin='http://tierradentro:8080/api/v1'
+  //public baseUrlLogin='http://tierradentro:8080/api/v1'
   
   
   public loginStatusSuject = new Subject<boolean>();
@@ -15,7 +16,7 @@ export class LoginService {
   constructor(private httpClient:HttpClient) { }
 //generar token
   public generateToken(loginData:any){
-    return this.httpClient.post(`${this.baseUrlLogin}/auth/signin`,loginData)
+    return this.httpClient.post(`${baseUrlLogin}/auth/signin`,loginData)
   }
 
 //iniciar sesion  y establecer el token en el localstorage

@@ -1,4 +1,4 @@
-let baseUrl='http://tierradentro:8080/web'
+let baseUrl='https://tierradentro.online/web'
 
 
 export default baseUrl
