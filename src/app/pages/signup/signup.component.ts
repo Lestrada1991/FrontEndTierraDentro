@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
@@ -15,13 +16,12 @@ import Swal from 'sweetalert2';
 })
 
 export class SignupComponent implements OnInit {
-
-
+  
   public user = {
     firstName: '',
     lastName: '',
     email: '',
-    telefono: '',
+    confirmPassword: '',
     username: '',
     password: '',
     role: ''
@@ -59,8 +59,7 @@ export class SignupComponent implements OnInit {
 
     console.log(this.user);
     if ((this.user.firstName == '' || this.user.firstName == null) ||
-      (this.user.lastName == '' || this.user.lastName == null) ||
-      (this.user.telefono == '' || this.user.telefono == null)) {
+      (this.user.lastName == '' || this.user.lastName == null)) {
       this.snack.open('Por favor diligencie los campos obligatorios !!', 'Aceptar', {
         duration: 3000,
         verticalPosition: 'bottom',
@@ -69,16 +68,9 @@ export class SignupComponent implements OnInit {
 
       return;
     }
-    /*if (this.user.username == '' || this.user.username == null) {
-      this.snack.open('El nombre del usuario es requerido !!', 'Aceptar', {
-        duration: 3000,
-        verticalPosition: 'bottom',
-        horizontalPosition: 'center'
-      });
-
-      return;
-    }*/
-    var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+   
+    //var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*(?:\.[a-zA-Z]{2,})$/;
     if (!this.user.email.match(EMAIL_REGEX)) {
       this.snack.open('El email ingresado no es valido !!', 'Aceptar', {
         duration: 3000,
@@ -97,18 +89,34 @@ export class SignupComponent implements OnInit {
 
       return;
     }
+    if (this.user.password != this.user.confirmPassword){
+      this.snack.open('La contraseña y confirmación de contraseña no coinciden !!', 'Aceptar', {
+        duration: 3000,
+        verticalPosition: 'bottom',
+        horizontalPosition: 'center'
+      });
+
+      return;
+    }
+    
+    this.user.email = this.user.email.toLowerCase()
     this.user.role="USER"
     this.userService.registrarUsuario(this.user).subscribe(
       (data: any) => {
-        //console.log(data);
-        Swal.fire('Usuario guardado', 'Usuario registrado con exito en el sistema !!', 'success')
+        console.log(data);
+        Swal.fire('Usuario guardado', 'Activa tu cuenta ahora, revisa tu bandeja de correo.', 'success')
         this.router.navigate(['users/login'])
       }, (error: any) => {
+        var msg = error.error
+        if(error.status===422){
+          msg=error.error.message;
+        }
         console.log(error);
-        this.snack.open('Ha ocurrido un errror en el sistema !!', 'Aceptar', {
+        this.snack.open(msg, 'Aceptar', {
           duration: 3000,
           verticalPosition: 'bottom',
-          horizontalPosition: 'center'
+          horizontalPosition: 'center',
+          panelClass:['red-snackbar']
         });
       }
     )

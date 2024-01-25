@@ -8,6 +8,8 @@ import { DocumentosComponent } from './pages/documentos/Documentos/documentos.co
 import { DetalleLibrosComponent } from './pages/DetalleLibro/detallelibros.component';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { EnableUserComponent } from './pages/enable-user/enable-user.component';
 
 
 
@@ -25,6 +27,8 @@ const routes: Routes = [
       redirectTo: 'documentos',
       pathMatch: 'full'
     },
+    { path: 'reset-password', component: ResetPasswordComponent },
+    { path: 'enable-user', component: EnableUserComponent },
     {
       path: 'home',
       redirectTo: 'documentos',
@@ -32,8 +36,7 @@ const routes: Routes = [
     },
     {
       path: 'signup',
-      component: SignupComponent,
-      pathMatch: 'full'
+      component: SignupComponent
     },
     {
       path: 'login',

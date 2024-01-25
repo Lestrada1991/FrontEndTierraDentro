@@ -66,6 +66,9 @@ import { DetalleLibrosComponent } from './pages/DetalleLibro/detallelibros.compo
 import {  RequestInterceptorProviders } from './service/http-request-interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { EnableUserComponent } from './pages/enable-user/enable-user.component';
 
 
 
@@ -80,7 +83,10 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     SignupComponent,
     LoginComponent,
     DetalleLibrosComponent,
-    DashboardComponent
+    DashboardComponent,
+    ResetPasswordComponent,
+    ForgotPasswordComponent,
+    EnableUserComponent
 
   ],
   imports: [

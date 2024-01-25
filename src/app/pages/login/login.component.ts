@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
+import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 
@@ -22,7 +24,7 @@ export class LoginComponent implements OnInit {
     "password": "",
   }
 
-  constructor(private snack: MatSnackBar, public loginservices: LoginService, private router: Router, private fb: FormBuilder) {
+  constructor(private snack: MatSnackBar, public loginservices: LoginService, private router: Router, private fb: FormBuilder,private dialog: MatDialog) {
     const user = loginservices.getUser();
     console.log("usuario en local: " + user);
     if (user != null) {
@@ -114,36 +116,27 @@ export class LoginComponent implements OnInit {
           //this.loginservices.setUser(user);
           //console.log(user);
           //this.loginservices.loginUser(data.token);
-          console.log();
+          console.log(data);
 
-          if (Rol === "ADMIN") {
-            //window.location.href='/admin';
-            
-            this.router.navigate(['/users/home/documentos']);
-            //window.location.reload(); 
-            this.loginservices.loginStatusSuject.next(true)
-            
-          }
-          else if (Rol === "USER") {
-            //window.location.href='/dashboard';
-            
-            this.router.navigate(['/users/home/documentos'])
-            //window.location.reload(); 
-            this.loginservices.loginStatusSuject.next(true)
-            
-          }
-          else {
-            this.loginservices.logout();
-          }
+          
 
        // })
 
       }, (error: any) => {
-        this.snack.open("Credenciales invalidas, por favor valide sus datos !!", "Aceptar", {
+        //console.log(error)
+        this.snack.open(error.error.message, "Aceptar", {
           duration: 3000,
           verticalPosition: 'bottom',
-          horizontalPosition: 'center'
+          horizontalPosition: 'center',
+          panelClass:['red-snackbar']
         })
       })
+  }
+
+  openForgotPasswordDialog() {
+    const dialogRef = this.dialog.open(ForgotPasswordComponent, {
+      width: "350px"
+      
+    });
   }
 }

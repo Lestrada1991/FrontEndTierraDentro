@@ -12,36 +12,32 @@ fxLayoutGap.xs="0">
             <span class="login-header mb-5 mt-3">Registro</span>
             <form (ngSubmit)="formSubmit()  " class="login-form align-items-center" fxLayout="column">
 
-                <mat-form-field appearance="outline" class="full-width">
+                <mat-form-field>
                     <mat-label>Nombre</mat-label>
                     <input [(ngModel)]="user.firstName" name="nombre" matInput placeholder="Digite su nombre" required>
                 </mat-form-field>
-                <mat-form-field appearance="outline" class="full-width">
+                <mat-form-field>
                     <mat-label>Apellido</mat-label>
                     <input [(ngModel)]="user.lastName" name="apellido" matInput placeholder="Digite su apellido"
                         required>
                 </mat-form-field>
-                <mat-form-field appearance="outline" class="full-width">
+                <mat-form-field>
                     <mat-label>Email</mat-label>
                     <input [(ngModel)]="user.email" name="email" type="email" matInput placeholder="Digite su correo"
                         required>
                 </mat-form-field>
-                <mat-form-field appearance="outline" class="full-width">
-                    <mat-label>Teléfono</mat-label>
-                    <input [(ngModel)]="user.telefono" name="telefono" type="tel" matInput
-                        placeholder="Digite su teléfono" required>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="full-width" hidden>
-                    <mat-label>Nombre de usuario</mat-label>
-                    <input [(ngModel)]="user.username" name="username" matInput
-                        placeholder="Digite su nombre de usuario" required>
-
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="full-width">
+                <mat-form-field>
                     <mat-label>Contraseña</mat-label>
                     <input [(ngModel)]="user.password" name="password" type="password" matInput
                         placeholder="Digite una contraseña" required>
                 </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Repetir contraseña</mat-label>
+                    <input [(ngModel)]="user.confirmPassword" name="confirmpassword" type="password" matInput
+                        placeholder="Repita la contraseña" required>
+                    <mat-hint>Las contraseñas deben coincidir!!</mat-hint>
+                </mat-form-field>
+                
 
             </form>
             <mat-dialog-content>

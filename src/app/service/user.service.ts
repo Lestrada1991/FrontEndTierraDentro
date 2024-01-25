@@ -13,7 +13,7 @@ export class UserService {
 
   public registrarUsuario(user:any){
     //console.log(user.username)
-    return this.httpClient.post(`${baseUrl}/auth/signup`,user);
+    return this.httpClient.post(`${baseUrl}/auth/register`,user);
   }
 
   public consultarUsuario(username:any){

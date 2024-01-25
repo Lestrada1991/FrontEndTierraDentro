@@ -16,9 +16,18 @@ export class LoginService {
   constructor(private httpClient:HttpClient) { }
 //generar token
   public generateToken(loginData:any){
-    return this.httpClient.post(`${baseUrlLogin}/auth/signin`,loginData)
+    return this.httpClient.post(`${baseUrlLogin}/auth/authenticate`,loginData)
   }
 
+  public forgotPassword(loginData:any){
+    return this.httpClient.post(`${baseUrlLogin}/auth/forgot-password`,loginData)
+  }
+  public resetpassword(loginData:any){
+    return this.httpClient.post(`${baseUrlLogin}/auth/reset-password`,loginData)
+  }
+  public enableuser(loginData:any){
+    return this.httpClient.post(`${baseUrlLogin}/auth/enable-user`,loginData)
+  }
 //iniciar sesion  y establecer el token en el localstorage
   public loginUser(token:any){
     //console.log(JSON.stringify(token))

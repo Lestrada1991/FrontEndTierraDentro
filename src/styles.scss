@@ -6,3 +6,20 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif; 
     background: #f5f5f5;
 }
+
+.green-snackbar {
+    background:#3f51b5;
+    color: white;
+     button {
+    background-color:#3f51b5;
+    color: white !important;
+    border: none;
+}}
+.red-snackbar {
+    background: #F44336;
+    color: white;
+    button {
+    background-color: #F44336;
+    color: white !important;
+    border: none;
+}}
