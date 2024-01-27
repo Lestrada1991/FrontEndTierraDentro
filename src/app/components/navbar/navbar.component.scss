@@ -19,6 +19,15 @@ h1.app-name {
     
 
 }
+@media only screen and (max-width: 768px){
+  .app-name {
+      margin-left: 0; /* Eliminar el margen en dispositivos móviles o ajustar según sea necesario */
+      text-align: center; /* Centrar el texto en dispositivos móviles si es necesario */
+      word-wrap: break-word; /* Forzar el texto a dividirse en palabras en dispositivos móviles */
+      max-height: 3em; /* Altura máxima equivalente a tres líneas */
+      line-height: 1.2em; /* Espaciado entre líneas */
+      overflow: hidden; /* Ocultar cualquier contenido adicional que se salga de las tres líneas */
+    }}
 
 .sidenav-container{
     flex: 1;
@@ -98,7 +107,7 @@ li,ul {
     justify-content: flex-start;
     font-size: 1rem;
   
-    mat-icon {
+    .mat-icon {
       margin-right: 8px;
     }
   }
@@ -122,7 +131,7 @@ li,ul {
     color: rgb(155, 154, 154);
   }
   
-  mat-divider {
+  .mat-divider {
     margin-top: 6px;
     margin-bottom: 6px;
     background-color: rgba(255, 255, 255, 0.5);

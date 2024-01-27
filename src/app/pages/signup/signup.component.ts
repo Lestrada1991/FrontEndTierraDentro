@@ -47,7 +47,7 @@ export class SignupComponent implements OnInit {
   unsplashClass(): any {
     return {
       'min-height': '100%',
-      background: `url("/assets/0.jpg") no-repeat center center`,
+      background: `url("/assets/0.jpg") no-repeat center center /cover;`,
       //background: `url("https://source.unsplash.com/random/1200x900?"${this.styleImage}) no-repeat center center`,
       'background-size': 'cover',
       position: 'relative',
