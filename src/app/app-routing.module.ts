@@ -27,11 +27,12 @@ const routes: Routes = [
       redirectTo: 'documentos',
       pathMatch: 'full'
     },
-    { path: 'reset-password', component: ResetPasswordComponent },
-    { path: 'enable-user', component: EnableUserComponent },
+    { path: 'reset-password', component: ResetPasswordComponent,pathMatch: 'full'},
+    { path: 'enable-user', component: EnableUserComponent ,pathMatch: 'full'},
     {
       path: 'home',
-      redirectTo: 'documentos',
+      redirectTo: 'documentos/0',
+      //component: HomeComponent,
       pathMatch:'full'
     },
     {
@@ -44,7 +45,7 @@ const routes: Routes = [
       pathMatch: 'full'
     },
     {
-      path: 'documentos',
+      path: 'documentos/:id',
       component:DocumentosComponent,
       pathMatch:'full',
       canActivate: [adminGuard],

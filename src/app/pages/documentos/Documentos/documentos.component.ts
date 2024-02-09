@@ -8,6 +8,8 @@ import { ConfirmComponent } from 'src/app/components/confirm/confirm.component';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { DetalleLibrosComponent } from '../../DetalleLibro/detallelibros.component';
 import { LoginService } from 'src/app/service/login.service';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter, Subscription } from 'rxjs';
 
 
 @Component({
@@ -17,21 +19,43 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class DocumentosComponent implements OnInit {
   mobileQuery: MediaQueryList;
-
+  id_fondo_documenta: number = 0;
+  public subscriber: Subscription = new Subscription;
 
   constructor(
     private documentoService: DocumentosService,
     private snackBar: MatSnackBar,
     private dialog: MatDialog, media: MediaMatcher,
-    public login: LoginService
+    public login: LoginService,
+    private route: ActivatedRoute,
+    private router:Router
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    
   }
 
   ngOnInit(): void {
-    console.log("llego al componente de documentos")
-    console.log("documentos llego")
+    this.subscriber = this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event) => {
+       console.log('The URL changed to: '  );
+       this.route.params.subscribe(params => {
+        this.id_fondo_documenta = parseInt(params['id']);
+      });
+      console.log("id_fondo: ",this.id_fondo_documenta)
+       if (this.id_fondo_documenta=== 0) { 
+        this.getProducts();
+        console.log('Se fue por la opcion normal') 
+      }
+      else { 
+        this.getDocumentosByFondoDocumental();
+        console.log('Se fue por la opcion de id fondo')  }
+    });
+    console.log('valor del id: ',this.id_fondo_documenta)
     this.getProducts();
+    
+
+
   }
 
   displayedColumns: string[] = ['id_documento', 'titulo', 'contenido', 'tipoDocumento', 'picture', 'archivo'];
@@ -53,6 +77,9 @@ export class DocumentosComponent implements OnInit {
     this.dataCardsPage = this.dataCards.slice(startIndex, endIndex);
   }
 
+  ngOnDestroy () {
+    this.subscriber?.unsubscribe();
+ } 
   /*getProducts(){
     this.productService.getProducts()
         .subscribe( (data:any) => {
@@ -63,35 +90,67 @@ export class DocumentosComponent implements OnInit {
           console.log("error en productos: ", error);
         }) 
   }*/
+  getDocumentosByFondoDocumental() {
+    this.documentoService.getDocumentsByFondoDoc(this.id_fondo_documenta)
+      .subscribe((data: any) => {
+        console.log("Documentos: ", data);
+        if (data.metadata[0].code === "00") {
+          let listCProduct = data.documentoResponse.documento;
+          const dateProduct: DocumentElement[] = [];
+          listCProduct.forEach((element: DocumentElement) => {
+            //element.category = element.category.name;
+            element.picture = element.picture = 'https://tierradentro.online/img' + element.picturePath;;
+            dateProduct.push(element);
+          });
+          this.dataCards = dateProduct;
+          this.totalItems = this.dataCards.length;
+          this.onPageChange({ pageIndex: 0, pageSize: this.pageSize }); // Cargar la página inicial
+        }
+      }, (error: any) => {
+        console.log(error)
+        if (error.status == 404) {
+          this.openSnackBar("No se encontraron coincidencias", "OK");
+        }
+        else if (error.status == 403) {
+          //  this.login.logout();
+          // this.ngOnInit();
+        } else {
+          this.openSnackBar("Error al obtener documentos", "Error");
+          console.log("error en productos: ", error);
+        }
+      });
+  }
 
   getProducts() {
-    this.documentoService.getProducts().subscribe((data: any) => {
-      console.log("Documentos: ", data);
-      if (data.metadata[0].code === "00") {
-        let listCProduct = data.documentoResponse.documento;
-        const dateProduct: DocumentElement[] = [];
-        listCProduct.forEach((element: DocumentElement) => {
-          //element.category = element.category.name;
-          element.picture = element.picture = 'https://tierradentro.online/img' + element.picturePath;;
-          dateProduct.push(element);
-        });
-        this.dataCards = dateProduct;
-        this.totalItems = this.dataCards.length;
-        this.onPageChange({ pageIndex: 0, pageSize: this.pageSize }); // Cargar la página inicial
-      }
-    }, (error: any) => {
-      console.log(error)
-      if (error.status == 404) {
-        this.openSnackBar("No se encontraron coincidencias", "OK");
-      }
-      else if (error.status == 403) {
-        //  this.login.logout();
-        // this.ngOnInit();
-      } else {
-        this.openSnackBar("Error al obtener documentos", "Error");
-        console.log("error en productos: ", error);
-      }
-    });
+
+    this.documentoService.getProducts()
+      .subscribe((data: any) => {
+        console.log("Documentos: ", data);
+        if (data.metadata[0].code === "00") {
+          let listCProduct = data.documentoResponse.documento;
+          const dateProduct: DocumentElement[] = [];
+          listCProduct.forEach((element: DocumentElement) => {
+            //element.category = element.category.name;
+            element.picture = element.picture = 'https://tierradentro.online/img' + element.picturePath;;
+            dateProduct.push(element);
+          });
+          this.dataCards = dateProduct;
+          this.totalItems = this.dataCards.length;
+          this.onPageChange({ pageIndex: 0, pageSize: this.pageSize }); // Cargar la página inicial
+        }
+      }, (error: any) => {
+        console.log(error)
+        if (error.status == 404) {
+          this.openSnackBar("No se encontraron coincidencias", "OK");
+        }
+        else if (error.status == 403) {
+          //  this.login.logout();
+          // this.ngOnInit();
+        } else {
+          this.openSnackBar("Error al obtener documentos", "Error");
+          console.log("error en productos: ", error);
+        }
+      });
   }
 
   /* processProductResponse(resp: any){
@@ -273,10 +332,11 @@ export class DocumentosComponent implements OnInit {
 export interface DocumentElement {
   id: number;
   titulo: string;
-  contenido: number;
+  palabrasClaves: number;
   filePath: string;
-  tipoDocumento: any;
+  fondoDocumental: any;
   picture: any;
   picturePath: any,
+  anho: number,
 
 }

@@ -19,7 +19,10 @@ export class DocumentosService {
     return this.http.get(endpoint);
   }
 
- 
+  getDocumentsByFondoDoc(id:any){
+    const endpoint = `${ base_url}/ListarDocumentos/${id}`;
+    return this.http.get(endpoint);
+  }
   getProductByName(name: any){
     const endpoint = `${ base_url}/buscarByText/${name}`;
     return this.http.get(endpoint);
@@ -42,5 +45,9 @@ export class DocumentosService {
     return this.http.get(endpoint, {
       responseType: 'blob'
     });
+  }
+  getFondoDocumental(){
+    const endpoint = `${ base_url}/fondodocumental/listar`;
+    return this.http.get(endpoint);
   }
 }

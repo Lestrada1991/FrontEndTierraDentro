@@ -37,7 +37,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
       
   }),
   catchError((error: HttpErrorResponse) => {
-    if ((error.status  === 403 || error.status=== 401)&& !this.router.url.includes('/users/login')){
+    if ((error.status  === 403 || error.status=== 401) && this.authService.isLoggedIn()){ // !this.router.url.includes('/users/login') ){
       console.log("entro en error 403 interceptor");
       // Cerrar sesión y redirigir al usuario a la página de inicio de sesión
       this.authService.logout();
