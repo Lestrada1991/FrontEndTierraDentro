@@ -37,7 +37,8 @@ const routes: Routes = [
     },
     {
       path: 'signup',
-      component: SignupComponent
+      component: SignupComponent,
+      pathMatch:'full'
     },
     {
       path: 'login',

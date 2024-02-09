@@ -85,7 +85,9 @@ export class LoginComponent implements OnInit {
   isMobileDevice(): boolean {
     return window.innerWidth <= 768; // Adjust threshold based on your needs
   }
-
+  crearcuenta(){
+    this.router.navigate(['users/signup'])
+  }
   formSubmit() {
     console.log("aqui llego")
     /*if(this.loginData.username.trim()=='' || this.loginData.username.trim()==null){

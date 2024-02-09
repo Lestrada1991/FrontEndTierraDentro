@@ -34,6 +34,7 @@ export class NavbarComponent implements OnInit{
   
   combinedArray: any[] = [];
   ngOnInit(): void {
+    
     this.subscriber = this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event) => {
@@ -41,6 +42,7 @@ export class NavbarComponent implements OnInit{
       
       this.getFondosDocumentales();
     });
+  
     
      
    
