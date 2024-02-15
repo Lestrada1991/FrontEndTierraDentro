@@ -8,7 +8,8 @@
               <input  matInput #input (input)="changebusqueda(input.value)" matTooltip="Ingresa tu búsqueda aquí">
             </mat-form-field>
             <button mat-raised-button style="background-color: #c00000; color:white; margin-top: 4px;" type="submit" (click)="buscar(input.value)"  matTooltip="Haz clic para buscar">
-              Buscar documentos
+                <mat-icon matPrefix>find_in_page</mat-icon>
+                Buscar documentos
             </button>
           </div>
         </mat-card-header>
@@ -27,9 +28,8 @@
                             <img mat-card-image [src]="element.picture" width="40px;" height="40px;" class="circular">
                         </div>
 
-                        <mat-card-subtitle style="font-size:small;">{{ element.titulo }}</mat-card-subtitle>
-                        <mat-card-subtitle style="font-size:x-small;">{{ element.fondoDocumental.nombre
-                            }}</mat-card-subtitle>
+                        <mat-card-title  class="subtitlemadcard">{{ element.titulo }}</mat-card-title>
+                        
                     </mat-card-header>
 
                     <img mat-card-image [src]="element.picture" width="45%" height="160px" style=" display: block;
@@ -38,7 +38,8 @@
 
                     <mat-card-content>
 
-
+                        <mat-card-subtitle class="title_center" style="font-size:x-small;">{{ element.fondoDocumental.nombre
+                        }}</mat-card-subtitle>
                         <mat-card-subtitle class="title_center" style="font-size:x-small;">{{ element.anho}}</mat-card-subtitle>
 
 
@@ -46,11 +47,13 @@
                     <mat-card-actions fxLayout="row" fxLayoutAlign="center">
                         <button mat-stroked-button color="#c00000" type="submit" matTooltip="Haz clic para ver los detalles"
                             style="color: #e28000; font-size:small;" (click)="openDetalleLibroDialog(element)">
+                            <mat-icon matPrefix>info_outline</mat-icon>
                             ¡Detalles!
                         </button>
 
                         <button mat-stroked-button color="#c00000" style="font-size:small; color:#28666e" matTooltip="Haz clic descargar"
                             (click)="openPDF(element.filePath,element.id)">
+                            <mat-icon matPrefix>file_download</mat-icon>
                             ¡Descargar!
                         </button>
                     </mat-card-actions>

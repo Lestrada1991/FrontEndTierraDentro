@@ -51,6 +51,7 @@ mat-form-field{
 }
 .title_center_v2 {
   display: flex;
+  font-size: medium;
   flex-direction: row;
   justify-content: center; /* align horizontal */
   align-items: center; /* align vertical */
@@ -133,3 +134,7 @@ mat-form-field{
     .close-button {
       align-items: flex-end !important;
     }
+
+    .custom-input {
+      font-size: small; /* Ajusta el tamaño del texto del input a un tamaño relativo más pequeño */
+  }

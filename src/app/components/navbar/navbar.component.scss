@@ -149,3 +149,25 @@ li,ul {
     align-items: center; /* Center items horizontally */
     text-align: center; /* Align text in the center */
   }
+  .submenu_text {
+    line-height: 1.0;
+    display: inline-block; 
+    max-width: 200px; 
+    overflow-wrap: break-word;
+    font-size: smaller;
+    white-space:normal;
+  }
+  .mat-nav-list a {
+    display: grid;
+    display: flex; /* Usa flexbox para alinear elementos */
+    align-items: center; /* Alinea verticalmente los elementos */
+    padding: 3px 11px; /* Agrega relleno para separar los elementos */
+}
+
+/*.submenu_text {
+    overflow-wrap: break-word; 
+    max-width: 100px; 
+    margin-left: 8px; 
+    font-size: smaller;
+    white-space: normal;
+}*/

@@ -192,3 +192,9 @@ mat-form-field{
                 transform: scale(.65);
     }
 }
+.subtitlemadcard {
+    
+    max-height: 4.5em; /* Establece una altura máxima de 5 líneas de texto */
+    overflow:unset; /* Oculta cualquier texto que exceda la altura máxima */
+    font-size:smaller;
+}

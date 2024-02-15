@@ -27,7 +27,7 @@
                     <mat-form-field>
                       <mat-label>Palabras Claves</mat-label>
                       <mat-icon matPrefix>description</mat-icon>
-                      <input matInput [value]="data.documento.palabrasClaves" readonly>
+                      <input matInput class="custom-input" [value]="data.documento.palabrasClaves" readonly>
                     </mat-form-field>
                   </div>
               
@@ -35,7 +35,7 @@
                     <mat-form-field>
                       <mat-label>Año</mat-label>
                       <mat-icon matPrefix>grade</mat-icon>
-                      <input matInput [value]="data.documento.anho" readonly>
+                      <input matInput class="custom-input" [value]="data.documento.anho" readonly>
                     </mat-form-field>
                   </div>
               
@@ -43,7 +43,7 @@
                     <mat-form-field>
                       <mat-label>Fondo Documental</mat-label>
                       <mat-icon matPrefix>category</mat-icon>
-                      <input matInput [value]="data.documento.fondoDocumental.nombre" readonly>
+                      <input matInput class="custom-input" [value]="data.documento.fondoDocumental.nombre" readonly>
                     </mat-form-field>
                   </div>
               
@@ -51,7 +51,7 @@
                     <mat-form-field>
                       <mat-label>Autor</mat-label>
                       <mat-icon matPrefix>person</mat-icon>
-                      <input matInput [value]="data.documento.autor.name" readonly>
+                      <input matInput class="custom-input" [value]="data.documento.autor.name" readonly>
                     </mat-form-field>
                   </div>
               
@@ -59,7 +59,7 @@
                     <mat-form-field>
                       <mat-label>Editorial</mat-label>
                       <mat-icon matPrefix>library_books</mat-icon>
-                      <input matInput [value]="data.documento.editorial.name" readonly>
+                      <input matInput class="custom-input" [value]="data.documento.editorial.name" readonly>
                     </mat-form-field>
                   </div>
               

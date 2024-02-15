@@ -27,8 +27,8 @@ export class NavbarComponent implements OnInit{
   fondosDocumentales : ifondoDocumental[] = [];
   menuNav = [
     
-    {name: "Documentos", route: "users/documentos/0", icon: "library_books", submenu:[
-      {name: "Todos", route: "users/documentos/0", icon: "library_books"}
+    {name: "Documentos", route: "users/documentos/0", icon: "my_library_books", submenu:[
+      {name: "", route: "", icon: ""}
     ]}   
   ]
   
