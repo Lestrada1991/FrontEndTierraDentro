@@ -1,62 +1,67 @@
-<div  class="container-fluid mt-5"
-fxLayout
-fxLayout.xs="column"
-fxLayoutAlign="center"
-fxLayoutGap="0"
-fxLayoutGap.xs="0">
-<div class="login-card mat-elevation-z8" fxFlex="40%">
-        <main class="login-content" fxLayout="column" fxLayoutAlign="center center">
-            <mat-subtitle fxLayoutAlign="start" class="subtitle-header  mt-3">Bienvenido al Módulo de Consulta</mat-subtitle>
-<mat-title class="title-header mb-4 mt-3">TIERRADENTRO</mat-title>
+<div class="container-fluid"
+    fxLayout="row"
+    fxLayout.xs="column"
+    fxLayout.sm="column"
+    fxLayout.md="row"
+    fxLayoutAlign="center center"
+    fxLayoutGap="0"
+    style="min-height: 100vh;"> <!-- Asegura que el contenedor ocupe toda la pantalla -->
+
+    <!-- Formulario de registro -->
+    <div class="login-card mat-elevation-z8" fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="40%" style="height: auto;">
+        <main class="login-content" fxLayout="column" fxLayoutAlign="center center" style="height: 100%;">
+            <mat-subtitle fxLayoutAlign="start" class="subtitle-header mt-3">Bienvenido al Módulo de Consulta</mat-subtitle>
+            <mat-title class="title-header mb-4 mt-3">TIERRADENTRO</mat-title>
 
             <span class="login-header mb-5 mt-3">Registro</span>
-            <form (ngSubmit)="formSubmit()  " class="login-form align-items-center" fxLayout="column">
-
+            <form (ngSubmit)="formSubmit()" class="login-form align-items-center" fxLayout="column">
                 <mat-form-field>
                     <mat-label>Nombre</mat-label>
                     <input [(ngModel)]="user.firstName" name="nombre" matInput placeholder="Digite su nombre" required>
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Apellido</mat-label>
-                    <input [(ngModel)]="user.lastName" name="apellido" matInput placeholder="Digite su apellido"
-                        required>
+                    <input [(ngModel)]="user.lastName" name="apellido" matInput placeholder="Digite su apellido" required>
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Email</mat-label>
-                    <input [(ngModel)]="user.email" name="email" type="email" matInput placeholder="Digite su correo"
-                        required>
+                    <input [(ngModel)]="user.email" name="email" type="email" matInput placeholder="Digite su correo" required>
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Contraseña</mat-label>
-                    <input [(ngModel)]="user.password" name="password" type="password" matInput
-                        placeholder="Digite una contraseña" required>
+                    <input [(ngModel)]="user.password" name="password" type="password" matInput placeholder="Digite una contraseña" required>
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Repetir contraseña</mat-label>
-                    <input [(ngModel)]="user.confirmPassword" name="confirmpassword" type="password" matInput
-                        placeholder="Repita la contraseña" required>
-                    <mat-hint>Las contraseñas deben coincidir!!</mat-hint>
+                    <input [(ngModel)]="user.confirmPassword" name="confirmpassword" type="password" matInput placeholder="Repita la contraseña" required>
+                    <mat-hint>Las contraseñas deben coincidir!</mat-hint>
                 </mat-form-field>
-                
-
             </form>
+
             <mat-dialog-content>
-                <button (click)="formSubmit()"  mat-stroked-button style="background-color: #c00000; color:white"><mat-icon>save</mat-icon>Registrar</button>
-                <button mat-stroked-button type="reset" (click)="onCancel()"
-                    ><mat-icon>cancel</mat-icon>Cancelar</button>
+                <button (click)="formSubmit()" mat-stroked-button style="background-color: #c00000; color:white;">
+                    <mat-icon>save</mat-icon>Registrar
+                </button>
+                <button mat-stroked-button type="reset" (click)="onCancel()">
+                    <mat-icon>cancel</mat-icon>Cancelar
+                </button>
             </mat-dialog-content>
+
             <div class="mt-3" fxLayoutAlign="center">
-                <img mat-card-image width="22%"  height="22%"  src="../../../assets/logoarchivohistorico.png" >
-                </div>
+                <img mat-card-image width="22%" height="22%" src="../../../assets/logoarchivohistorico.png">
+            </div>
         </main>
     </div>
-    <div class="login-card mat-elevation-z8" fxFlex=45% fxLayout="column" fxLayoutAlign="end start" *ngIf="!isMobileDevice()"
-        [ngStyle]="unsplashClass()">
+
+    <!-- Fondo con la imagen -->
+    <div class="login-card mat-elevation-z8" fxFlex="45%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="45%"
+        fxLayout="column" fxLayoutAlign="center center"
+        fxHide.xs fxHide.sm
+        fxShow.md fxShow.lg fxShow.xl
+        style="background-image: url('../../../assets/logoarchivohistorico.png'); background-size: cover; background-position: center; height: auto;">
         <div class="login-aside-overlay"></div>
-        <h1 class="login-welcome-text">Somos la Memoria colectiva de los Atlanticenses</h1>
+        <h1 class="login-welcome-text" style="color: white;">Somos la Memoria colectiva de los Atlanticenses</h1>
         <hr class="login-aside-hr">
-
-
     </div>
 
 </div>

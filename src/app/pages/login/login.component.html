@@ -1,58 +1,51 @@
-<div  class="container-fluid mt-5" *ngIf="!loginservices.isLoggedIn()"
-fxLayout
-fxLayout.xs="column"
-fxLayoutAlign="center"
-fxLayoutGap="0"
-fxLayoutGap.xs="0">
-<div class="login-card mat-elevation-z8" fxFlex="35%">
-    <main class="login-content"
-    fxLayout="column"
-fxLayoutAlign="center center">
-<mat-subtitle fxLayoutAlign="start" class="subtitle-header  mt-3">Bienvenido al Módulo de Consulta</mat-subtitle>
-<mat-title class="title-header mb-4 mt-3">TIERRADENTRO</mat-title>
-<span class="login-header mb-5 mt-3">Login</span>
-<form [formGroup]="form" class="login-form align-items-center" fxLayout="column" (ngSubmit)="login($event)">
-    <mat-form-field appearance="outline" class="full-width">
-    <mat-label>Nombre de usuario</mat-label>
-    <input formControlName="username" matInput placeholder="Digite su nombre de usuario" required>
-    <mat-icon matPrefix>mail_outline</mat-icon>
-    <!--<mat-error *ngIf="form.controls.username.hasError('required')">
-    Por favor ingrese un usuario valido
-</mat-error>-->
-</mat-form-field>
-<mat-form-field class="full-width" appearance="outline">
-    <mat-label>Contraseña</mat-label>
-    <input formControlName="password" type="password" matInput placeholder="Digite su contraseña" required>
-    <mat-icon matPrefix>lock_outline</mat-icon>
-   <!-- <mat-error *ngIf="form.controls.password.hasError('required')">
-    Contraseña <strong>requerida</strong>
-</mat-error>-->
-</mat-form-field>
-    <button type="submit" mat-raised-button style="background-color: #c00000; color:white" class="login-button mt-3">Iniciar Sesión</button>
-</form>
-<div class="mt-3">
-    <a class="forgot-link" type="submit" (click)="openForgotPasswordDialog()">recuperar contraseña?</a>
-    <!--<a class="forgot-link" type="submit"  routerLink="/users/signup">Crear cuenta</a>-->
-    <a class="forgot-link" type="submit"  (click)="crearcuenta()">Crear cuenta</a>
-</div>
-<!--<div class="mt-3" fxLayoutAlign="center">
-    <a class="forgot-link" type="submit"  routerLink="/users/signup">Crear cuenta</a>
-</div> -->
-<div class="mt-3" fxLayoutAlign="center">
-<img mat-card-image width="22%"  height="22%"  src="../../../assets/logoarchivohistorico.png" >
-</div>
-</main>
-</div>
-<div class="login-card mat-elevation-z8" *ngIf="!isMobileDevice()"
-    fxFlex= 45%
-    fxLayout="column"
-    fxLayoutAlign="end start"    
-    [ngStyle]="unsplashClass()">
+<div class="container-fluid"
+     fxLayout="row"
+     fxLayout.xs="column"
+     fxLayoutAlign="center center"
+     style="min-height: 100vh;"> <!-- Ocupa toda la pantalla -->
+
+  <!-- Formulario de login -->
+  <div class="login-card mat-elevation-z8" fxFlex="35%" fxFlex.xs="100%" fxFlex.sm="90%" fxFlex.md="35%">
+    <main class="login-content" fxLayout="column" fxLayoutAlign="center center">
+      <mat-subtitle fxLayoutAlign="start" class="subtitle-header mt-3">Bienvenido al Módulo de Consulta</mat-subtitle>
+      <mat-title class="title-header mb-4 mt-3">TIERRADENTRO</mat-title>
+
+      <span class="login-header mb-5 mt-3">Login</span>
+      <form [formGroup]="form" class="login-form align-items-center" fxLayout="column" (ngSubmit)="login($event)">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Nombre de usuario</mat-label>
+          <input formControlName="username" matInput placeholder="Digite su nombre de usuario" required>
+          <mat-icon matPrefix>mail_outline</mat-icon>
+        </mat-form-field>
+        
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <input formControlName="password" type="password" matInput placeholder="Digite su contraseña" required>
+          <mat-icon matPrefix>lock_outline</mat-icon>
+        </mat-form-field>
+        
+        <button type="submit" mat-raised-button style="background-color: #c00000; color:white" class="login-button mt-3">Iniciar Sesión</button>
+      </form>
+
+      <div class="mt-3">
+        <a class="forgot-link" type="submit" (click)="openForgotPasswordDialog()">recuperar contraseña?</a>
+        <a class="forgot-link" type="submit" (click)="crearcuenta()">Crear cuenta</a>
+      </div>
+
+      <div class="mt-3" fxLayoutAlign="center">
+        <img mat-card-image width="22%" height="22%" src="../../../assets/logoarchivohistorico.png">
+      </div>
+    </main>
+  </div>
+
+  <!-- Imagen a la derecha, proporcional al login -->
+  <div class="login-card mat-elevation-z8" fxFlex="45%" fxFlex.xs="100%" fxFlex.sm="90%" fxFlex.md="45%" 
+       fxLayout="column" fxLayoutAlign="center center" 
+       *ngIf="!isMobileDevice()" [ngStyle]="unsplashClass()"
+       style="min-height: 100%;  background-size: cover; background-position: center;">
     <div class="login-aside-overlay"></div>
-    <h1 class="login-welcome-text">Somos la Memoria colectiva de los Atlanticenses</h1>
+    <h1 class="login-welcome-text" style="color: white;">Somos la Memoria colectiva de los Atlanticenses</h1>
     <hr class="login-aside-hr">
-
-
-</div>
+  </div>
 
 </div>
