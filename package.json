@@ -2,11 +2,13 @@
   "name": "FrontEnd-ArchivoHistorico",
   "version": "0.0.0",
   "scripts": {
+    "docs": "npx compodoc -p tsconfig.app.json -d documentation",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
+    
   },
   "private": true,
   "dependencies": {
@@ -39,6 +41,7 @@
     "@angular-devkit/build-angular": "^16.1.5",
     "@angular/cli": "~16.1.5",
     "@angular/compiler-cli": "^16.1.0",
+    "@compodoc/compodoc": "^1.1.26",
     "@types/jasmine": "~4.3.0",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
