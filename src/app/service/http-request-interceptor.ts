@@ -1,10 +1,5 @@
 import { Injectable, NgZone } from '@angular/core';
-import {
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor, HttpResponse, HTTP_INTERCEPTORS, HttpErrorResponse
-} from '@angular/common/http';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse, HTTP_INTERCEPTORS, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import {catchError, finalize, map} from 'rxjs/operators'
 import { NgxUiLoaderService } from 'ngx-ui-loader';
