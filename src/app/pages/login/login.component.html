@@ -1,4 +1,5 @@
 <!-- Contenedor principal con el fondo de Unsplash -->
+ <div *ngIf="!loginservices.isLoggedIn()" >
 <div class="login-container" fxLayout="column" fxLayoutAlign="center center" [ngStyle]="unsplashClass()">
   
     <!-- Contenedor para el contenido del login (centrado sobre el fondo) -->
@@ -39,9 +40,9 @@
   </div>
   
   <!-- Fondo alternativo para la sección adicional, solo si no es móvil -->
-  <div class="login-aside" *ngIf="!isMobileDevice()">
+  <div class="login-aside"  *ngIf="!isMobileDevice()">
     <div class="login-aside-overlay"></div>
     <h1 class="login-welcome-text">Somos la memoria colectiva de los Atlanticenses</h1>
   </div>
-  
+</div>
   
